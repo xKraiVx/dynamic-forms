@@ -137,48 +137,6 @@ export const formData: IQuiz = {
           value: "very_unhappy",
           action: {
             type: EActionType.REDIRECT,
-            questionId: "e4c17912-13b5-43cb-90e1-6b0a2f4c2e91",
-          },
-        },
-        {
-          id: uuidv4(),
-
-          label:
-            "I'm unhappy with parts of my relationship, but some things are working well",
-          value: "some_issues",
-          action: {
-            type: EActionType.REDIRECT,
-            questionId: "e4c17912-13b5-43cb-90e1-6b0a2f4c2e91",
-          },
-        },
-        {
-          id: uuidv4(),
-
-          label: "I'm generally happy in my relationship",
-          value: "happy",
-          action: {
-            type: EActionType.REDIRECT,
-            questionId: "e4c17912-13b5-43cb-90e1-6b0a2f4c2e91",
-          },
-        },
-      ],
-      style: {
-        mode: "light",
-        textAlign: "center",
-      },
-    },
-    {
-      id: "36df30b3-bf35-4f00-9c68-2a89bb9b91aa",
-      text: "Single {gender} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?",
-      options: [
-        {
-          id: uuidv4(),
-
-          label:
-            "I'm very unhappy with how things are going in my relationship",
-          value: "very_unhappy",
-          action: {
-            type: EActionType.REDIRECT,
             questionId: "8e81c471-38a7-4bc3-8f1e-9cfb13b14ae3",
           },
         },
@@ -246,6 +204,7 @@ export const formData: IQuiz = {
         {
           id: uuidv4(),
           label: "Next",
+          value: "next",
           action: {
             type: EActionType.CONDITION,
             conditions: [

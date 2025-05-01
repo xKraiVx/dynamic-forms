@@ -7,5 +7,5 @@ export const revalidate = 60;
 export default function Home(): JSX.Element {
   const { name, initialQuestionId } = getHomePageData();
 
-  return <HomePage quisTitle={name} initialQuesionId={initialQuestionId} />;
+  return <HomePage quizTitle={name} initialQuesionId={initialQuestionId} />;
 }

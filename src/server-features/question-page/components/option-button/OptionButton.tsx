@@ -1,36 +1,44 @@
 "use client";
 
-import Button from "@/common/components/button/Button";
 import { EActionType, IOption } from "@/common/types/question.types";
-import { getQuestionPath } from "@/common/utils/getQuestionPath";
+import ConditionOptionButton from "@/server-features/question-page/components/option-button/ConditionOptionButton";
+import RedirectOptionButton from "@/server-features/question-page/components/option-button/RedirectOptionButton";
+import SubmitOptionButton from "@/server-features/question-page/components/option-button/SubmitOptionButton";
 import { JSX } from "react";
+
+interface IOptionButtonProps extends IOption {
+  questionId: string;
+}
 
 export default function OptionButton({
   label,
   action,
   value,
-}: IOption): JSX.Element {
-  const handleClick = () => {
-    console.log("Button clicked", value);
-  };
+  questionId,
+}: IOptionButtonProps): JSX.Element {
+  console.log(action.type);
 
   switch (action.type) {
     case EActionType.REDIRECT:
       return (
-        <Button
-          component="link"
-          onClick={handleClick}
-          href={getQuestionPath(action.questionId)}
-        >
-          {label}
-        </Button>
+        <RedirectOptionButton
+          value={value}
+          questionId={questionId}
+          redirectId={action.questionId}
+          label={label}
+        />
       );
     case EActionType.SUBMIT:
-      console.log("Submit action triggered");
-      return <Button>{label}</Button>;
+      return <SubmitOptionButton label={label} />;
     case EActionType.CONDITION:
-      console.log("Condition action triggered");
-      return <Button onClick={handleClick}>{label}</Button>;
+      return (
+        <ConditionOptionButton
+          label={label}
+          questionId={questionId}
+          value={value}
+          conditions={action.conditions}
+        />
+      );
     default:
       throw new Error("Unknown action type");
   }

@@ -10,14 +10,14 @@ interface IQuestionPageProps {
 export default function QuestionPage({
   data,
 }: IQuestionPageProps): JSX.Element {
-  const { text, options } = data;
+  const { text, options, id } = data;
 
   return (
     <>
       <Typography variant="heading">{text}</Typography>
       <div className="flex flex-col gap-2 mt-4">
         {options.map((option) => (
-          <OptionButton key={option.id} {...option} />
+          <OptionButton key={option.id} questionId={id} {...option} />
         ))}
       </div>
     </>

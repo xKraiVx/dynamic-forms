@@ -8,7 +8,7 @@ interface IContainerProps extends PropsWithChildren {
 
 export default function Container({
   className,
-  size = "lg",
+  size,
   children,
 }: IContainerProps): JSX.Element {
   const containerClass = cn(

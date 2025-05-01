@@ -31,7 +31,7 @@ export type IAction = IRedirectAction | ISubmitAction | IConditionAction;
 export interface IOption {
   id: string;
   label: string;
-  value?: string;
+  value: string;
   action: IAction;
 }
 

@@ -1,21 +1,25 @@
-import Button from "@/common/components/button/Button";
-import { getQuestionPath } from "@/common/utils/getQuestionPath";
+import Typography from "@/common/components/typography/Typography";
+import StartQuizButton from "@/server-features/home-page/components/start-quiz-button/StartQuizButton";
 import { JSX } from "react";
 
 interface IHomePageProps {
-  quisTitle: string;
+  quizTitle: string;
   initialQuesionId: string;
 }
 
 export default function HomePage({
-  quisTitle,
+  quizTitle,
   initialQuesionId,
 }: IHomePageProps): JSX.Element {
-  const href = getQuestionPath(initialQuesionId);
-
   return (
-    <Button component="link" href={href}>
-      {quisTitle}
-    </Button>
+    <>
+      <Typography variant="heading" className="mb-4">
+        Test application
+      </Typography>
+      <StartQuizButton
+        quizTitle={quizTitle}
+        initialQuesionId={initialQuesionId}
+      />
+    </>
   );
 }
