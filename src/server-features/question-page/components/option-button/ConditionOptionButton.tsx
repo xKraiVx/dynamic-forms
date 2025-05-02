@@ -5,7 +5,7 @@ import {
   useAddAnswer,
   useGetAnswers,
 } from "@/store/slices/quiz-slice/quizSlice.hooks";
-import { JSX } from "react";
+import { JSX, useMemo } from "react";
 
 interface IConditionOptionButtonProps {
   label: string;
@@ -22,17 +22,22 @@ export default function ConditionOptionButton({
 }: IConditionOptionButtonProps): JSX.Element {
   const answers = useGetAnswers();
 
-  let redirectId: string | undefined;
+  const redirectId = useMemo(
+    () =>
+      conditions.reduce((redirectId: string | null, condition) => {
+        const { questionId, value, redirect } = condition;
+        const isConditionMet =
+          answers.find((answer) => answer.questionId === questionId)?.value ===
+          value;
 
-  conditions.forEach(({ questionId, value, redirect }) => {
-    const isConditionMet =
-      answers.find((answer) => answer.questionId === questionId)?.value ===
-      value;
+        if (isConditionMet) {
+          return redirect;
+        }
 
-    if (isConditionMet) {
-      redirectId = redirect;
-    }
-  });
+        return redirectId;
+      }, null),
+    [answers, conditions]
+  );
 
   const addAnswer = useAddAnswer();
 

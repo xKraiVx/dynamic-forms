@@ -16,8 +16,6 @@ export default function OptionButton({
   value,
   questionId,
 }: IOptionButtonProps): JSX.Element {
-  console.log(action.type);
-
   switch (action.type) {
     case EActionType.REDIRECT:
       return (
@@ -29,7 +27,13 @@ export default function OptionButton({
         />
       );
     case EActionType.SUBMIT:
-      return <SubmitOptionButton label={label} />;
+      return (
+        <SubmitOptionButton
+          label={label}
+          questionId={questionId}
+          value={value}
+        />
+      );
     case EActionType.CONDITION:
       return (
         <ConditionOptionButton

@@ -2,11 +2,7 @@ import { IAnswer } from "@/common/types/answer";
 import {
   addAnswer,
   clearAnswers,
-  IQuizSliceState,
-  removeAnswer,
-  setCurrentQuestionId,
   setInitialState,
-  setIsFinished,
   TRootState,
 } from "@/store/slices/quiz-slice/quizSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 export const useAddAnswer = () => {
   const dispatch = useDispatch();
 
-  return (answer: IAnswer) => {
+  return (answer: string | IAnswer) => {
+    if (typeof answer === "string") {
+      dispatch(addAnswer({ questionId: answer, value: null }));
+      return;
+    }
+
     dispatch(addAnswer(answer));
   };
 };
@@ -27,36 +28,9 @@ export const useCleanAnswers = () => {
   };
 };
 
-export const useSetCurrentQuestionId = () => {
-  const dispatch = useDispatch();
-
-  return (questionId: string) => {
-    dispatch(setCurrentQuestionId(questionId));
-  };
-};
-
-export const useSetIsFinished = () => {
-  const dispatch = useDispatch();
-  return (isFinished: boolean) => {
-    dispatch(setIsFinished(isFinished));
-  };
-};
-
-export const useGetIsFinished = (): boolean => {
-  const quiz = useSelector<TRootState, boolean>(
-    (state) => state.quiz.isFinished
-  );
-
-  if (!quiz) {
-    return false;
-  }
-
-  return quiz;
-};
-
 export const useGetCurrentQuestionId = (): string => {
   const quiz = useSelector<TRootState, string>(
-    (state) => state.quiz.currentQuestionId
+    (state) => state.quiz[state.quiz.length - 1]?.questionId
   );
 
   if (!quiz) {
@@ -66,18 +40,8 @@ export const useGetCurrentQuestionId = (): string => {
   return quiz;
 };
 
-export const useRemoveAnswer = () => {
-  const dispatch = useDispatch();
-
-  return (questionId: string) => {
-    dispatch(removeAnswer(questionId));
-  };
-};
-
 export const useGetAnswers = (): IAnswer[] => {
-  const quiz = useSelector<TRootState, IAnswer[]>(
-    (state) => state.quiz.answers
-  );
+  const quiz = useSelector<TRootState, IAnswer[]>((state) => state.quiz);
 
   if (!quiz) {
     return [];
@@ -86,20 +50,32 @@ export const useGetAnswers = (): IAnswer[] => {
   return quiz;
 };
 
+export const useGetIsFinished = (): boolean => {
+  const quiz = useGetAnswers();
+  const isFinished = quiz.every((answer) => !!answer.value);
+
+  return isFinished;
+};
+
 export const useSetInitialState = () => {
   const dispatch = useDispatch();
 
-  return (state: IQuizSliceState) => {
+  return (state: IAnswer[]) => {
     dispatch(setInitialState(state));
   };
 };
 
-export const useGetLastAnswer = (): IAnswer | null => {
+export const useGetPrevAnswer = (): IAnswer | null => {
   const answers = useGetAnswers();
+  const currentId = useGetCurrentQuestionId();
 
-  if (answers.length === 0) {
+  const currenIdIndex = answers?.findIndex(
+    (answer) => answer.questionId === currentId
+  );
+
+  if (currenIdIndex === -1) {
     return null;
   }
 
-  return answers[answers.length - 1];
+  return answers[currenIdIndex - 1];
 };

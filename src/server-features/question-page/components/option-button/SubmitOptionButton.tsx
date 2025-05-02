@@ -1,20 +1,25 @@
 import Button from "@/common/components/button/Button";
-import { useSetIsFinished } from "@/store/slices/quiz-slice/quizSlice.hooks";
+import { useAddAnswer } from "@/store/slices/quiz-slice/quizSlice.hooks";
 import { useRouter } from "next/navigation";
 import { JSX } from "react";
 
 interface ISubmitOptionButtonProps {
   label: string;
+  questionId: string;
+  value: string;
 }
 
 export default function SubmitOptionButton({
   label,
+  questionId,
+  value,
 }: ISubmitOptionButtonProps): JSX.Element {
-  const setIsFinished = useSetIsFinished();
+  const addAnswer = useAddAnswer();
+
   const push = useRouter().push;
 
   const handleSubmit = () => {
-    setIsFinished(true);
+    addAnswer({ questionId, value });
     push("/results");
   };
 

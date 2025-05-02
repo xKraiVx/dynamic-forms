@@ -127,7 +127,7 @@ export const formData: IQuiz = {
     },
     {
       id: "36df30b3-bf35-4f00-9c68-2a89bb9b91aa",
-      text: "Single {gender} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?",
+      text: "Single {%c3d59d45-a718-4e92-9f98-6adbd6d0cfae%} {%70a7b3cb-4a7f-4b78-bc77-6469484ea270:yes:who have children%} need a slightly different approach to improve their relationship. Which statement best describes you?",
       options: [
         {
           id: uuidv4(),
@@ -328,7 +328,7 @@ export const formData: IQuiz = {
     },
     {
       id: "d8e67f7b-b801-4cb3-9151-55997aaeb7d6",
-      text: "{Gender} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
+      text: "{%c3d59d45-a718-4e92-9f98-6adbd6d0cfae%} {%6a76d60d-d318-45bc-9e08-77a9a05c9f3e:yes:who have children%} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
       options: [
         {
           id: uuidv4(),

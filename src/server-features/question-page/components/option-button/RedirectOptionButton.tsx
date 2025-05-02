@@ -1,9 +1,6 @@
 import Button from "@/common/components/button/Button";
 import { getQuestionPath } from "@/common/utils/getQuestionPath";
-import {
-  useAddAnswer,
-  useSetCurrentQuestionId,
-} from "@/store/slices/quiz-slice/quizSlice.hooks";
+import { useAddAnswer } from "@/store/slices/quiz-slice/quizSlice.hooks";
 import { JSX } from "react";
 
 interface IRedirectOptionButtonProps {
@@ -20,11 +17,10 @@ export default function RedirectOptionButton({
   value,
 }: IRedirectOptionButtonProps): JSX.Element {
   const addAnswer = useAddAnswer();
-  const setCurrentQuestionId = useSetCurrentQuestionId();
 
   const handleClick = () => {
     addAnswer({ questionId, value });
-    setCurrentQuestionId(redirectId);
+    addAnswer(redirectId);
   };
 
   return (

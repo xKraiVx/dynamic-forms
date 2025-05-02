@@ -1,4 +1,5 @@
 import Typography from "@/common/components/typography/Typography";
+import { useFormatTextByState } from "@/common/hooks/useFormatTextByState";
 import { IAnswer } from "@/common/types/answer";
 import { IQuestion } from "@/common/types/question.types";
 import { JSX, useMemo } from "react";
@@ -17,7 +18,8 @@ export default function ResultListItem({
     [answer, questions]
   );
 
-  const questionText = question?.text;
+  const formattedText = useFormatTextByState(question?.text);
+
   const answerText = useMemo(
     () =>
       question?.options.find((option) => option.value === answer.value)?.label,
@@ -27,7 +29,7 @@ export default function ResultListItem({
   return (
     <div>
       <Typography variant="heading" className="mb-4">
-        {questionText}
+        {formattedText}
       </Typography>
       <Typography variant="body" className="mb-4">
         {answerText}
