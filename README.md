@@ -27,7 +27,7 @@ bun run build
 ```
 
 ```bash
-npm run build
+npm run start
 # or
 yarn start
 # or
