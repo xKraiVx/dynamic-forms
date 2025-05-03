@@ -512,7 +512,7 @@ export const formData: IQuiz = {
     },
     {
       id: "b26f36d4-c9a1-4a65-9c37-d65fa0a5cd2b",
-      text: "When you think about your relationship goals, you feel…?",
+      text: "When you think about your relationship goals, you feel...?",
       options: [
         {
           id: uuidv4(),
@@ -584,7 +584,7 @@ export const formData: IQuiz = {
         {
           id: uuidv4(),
 
-          label: "Direct link or linkshare from someone",
+          label: "Direct Mail or Package Insert",
           value: "direct_link",
           action: {
             type: EActionType.SUBMIT,

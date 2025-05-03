@@ -30,8 +30,6 @@ export const quizSlice = createSlice({
         (answer) => answer.questionId === action.payload
       );
 
-      console.log("targetIndex", targetIndex);
-
       if (targetIndex === -1) {
         return state;
       }

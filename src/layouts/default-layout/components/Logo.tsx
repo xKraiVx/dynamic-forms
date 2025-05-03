@@ -16,6 +16,7 @@ export default function Logo({ className }: ILogoProps): JSX.Element {
         alt="Logo"
         width={ICON_SIZE}
         height={ICON_SIZE}
+        priority={true}
         className={cn(className, "invert-(--INVERT-FILTER)")}
       />
     </Link>

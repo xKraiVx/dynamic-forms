@@ -22,7 +22,10 @@ export const formatTextByTemplate = (
       //NOTE: format {%questionId%} to {answer value}
       const answer = answers.find((answer) => questionId === answer.questionId);
 
-      formattedText = formattedText.replace(match, answer ? answer.value : "");
+      formattedText = formattedText.replace(
+        match,
+        answer?.value?.toString() ?? ""
+      );
 
       return formattedText;
     }
@@ -44,7 +47,7 @@ export const formatTextByTemplate = (
     //NOTE: if the answer value is not valid, remove the match from the text and log a warning
 
     console.warn(
-      `The answer value "${answer?.value}" does not match the expected value "${value}".`
+      `The answer ${questionId} value "${answer?.value}" does not match the expected value "${value}".`
     );
     formattedText = formattedText.replace(match, "");
 

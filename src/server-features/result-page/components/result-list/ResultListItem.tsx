@@ -27,8 +27,8 @@ export default function ResultListItem({
   );
 
   return (
-    <div>
-      <Typography variant="heading" className="mb-4">
+    <div className="border-b border-border pb-1 mb-4">
+      <Typography variant="heading2" className="mb-4">
         {formattedText}
       </Typography>
       <Typography variant="body" className="mb-4">
