@@ -16,8 +16,6 @@ export default function QuestionPage({
   const { text, options, id, style, description } = data;
   const formattedText = useFormatTextByState(text);
 
-  console.log("QuestionPage data", style);
-
   return (
     <div className={style.mode}>
       <Typography variant="heading" className="mb-2">

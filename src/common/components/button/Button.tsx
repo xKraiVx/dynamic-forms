@@ -15,16 +15,21 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 interface IButtonPropsBase {
   children: React.ReactNode;
+  className?: string;
 }
 
 type TButtonProps =
   | (IButtonPropsBase & { component?: "button" } & ButtonProps)
-  | (IButtonPropsBase & { component: "link"; disabled?: boolean } & LinkProps);
+  | (IButtonPropsBase & {
+      component: "link";
+      disabled?: boolean;
+    } & LinkProps);
 
 export default function Button({
   children,
   component = "button",
   disabled = false,
+  className,
   ...props
 }: TButtonProps): JSX.Element {
   const buttonStyles = cn(
@@ -33,7 +38,8 @@ export default function Button({
     BUTTON_HOVER_STYLES,
     BUTTON_FOCUS_STYLES,
     BUTTON_BEFORE_STYLES,
-    disabled && BUTTON_DISABLED_STYLES
+    disabled && BUTTON_DISABLED_STYLES,
+    className
   );
 
   if (component === "link") {

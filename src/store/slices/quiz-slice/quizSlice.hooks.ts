@@ -2,6 +2,7 @@ import { IAnswer } from "@/common/types/answer";
 import {
   addAnswer,
   clearAnswers,
+  removeAnswersAfterTarget,
   setInitialState,
   TRootState,
 } from "@/store/slices/quiz-slice/quizSlice";
@@ -27,6 +28,7 @@ export const useAddAnswer = () => {
     }
 
     dispatch(addAnswer(answer));
+    dispatch(removeAnswersAfterTarget(answer.questionId));
   };
 };
 

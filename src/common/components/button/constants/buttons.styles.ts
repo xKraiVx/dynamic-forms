@@ -1,5 +1,5 @@
 export const BUTTON_DEFAULT_STYLES =
-  "relative px-6 py-3 rounded-xl bg-(--COLOR-BUTTON-BG) text-(--COLOR-BUTTON-TEXT) shadow-custom-purple cursor-pointer w-full flex justify-center items-center gap-2 transition duration-300 ease-in-out active:before:opacity-100 active:text-white";
+  "relative px-6 py-3 rounded-xl bg-(--COLOR-BUTTON-BG) text-(--COLOR-BUTTON-TEXT) shadow-custom-purple cursor-pointer flex justify-center items-center gap-2 transition duration-300 ease-in-out active:before:opacity-100 active:text-white";
 
 export const BUTTON_ACTIVE_STYLES =
   "active:before:opacity-100 active:text-white";

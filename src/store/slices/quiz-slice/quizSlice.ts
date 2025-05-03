@@ -29,6 +29,9 @@ export const quizSlice = createSlice({
       const targetIndex = state.findIndex(
         (answer) => answer.questionId === action.payload
       );
+
+      console.log("targetIndex", targetIndex);
+
       if (targetIndex === -1) {
         return state;
       }
