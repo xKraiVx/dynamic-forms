@@ -1,6 +1,6 @@
 import Container from "@/common/components/container/Container";
-import BackButton from "@/layouts/components/BackButton";
-import Logo from "@/layouts/components/Logo";
+import BackButton from "@/layouts/default-layout/components/BackButton";
+import Logo from "@/layouts/default-layout/components/Logo";
 
 export default function Header() {
   return (

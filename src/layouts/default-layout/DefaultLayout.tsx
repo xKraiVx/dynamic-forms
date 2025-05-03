@@ -1,6 +1,6 @@
 import Container from "@/common/components/container/Container";
-import Header from "@/layouts/components/Header";
-import QuizHydrator from "@/layouts/components/QuizHydrator";
+import Header from "@/layouts/default-layout/components/Header";
+
 import { JSX, PropsWithChildren } from "react";
 
 export default function DefaultLayout({
@@ -9,8 +9,7 @@ export default function DefaultLayout({
   return (
     <>
       <Header />
-      <Container size="sm">{children}</Container>
-      <QuizHydrator />
+      <Container>{children}</Container>
     </>
   );
 }

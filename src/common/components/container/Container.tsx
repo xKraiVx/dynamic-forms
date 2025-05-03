@@ -12,7 +12,7 @@ export default function Container({
   children,
 }: IContainerProps): JSX.Element {
   const containerClass = cn(
-    "container px-4 py-2 m-auto",
+    "container px-2 py-2 m-auto",
     {
       "max-w-sm": size === "sm",
       "max-w-lg": size === "lg",

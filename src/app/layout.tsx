@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import DefaultLayout from "@/layouts/DefaultLayout";
 import StoreProvider from "@/store/StoreProvider";
+import QuizHydrator from "@/layouts/default-layout/components/QuizHydrator";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -23,7 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={openSans.variable}>
         <StoreProvider>
-          <DefaultLayout>{children}</DefaultLayout>
+          {children}
+          <QuizHydrator />
         </StoreProvider>
       </body>
     </html>

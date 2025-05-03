@@ -24,9 +24,9 @@ export default function StartQuizButton({
   const addAnswer = useAddAnswer();
   const currentAnswerId = useGetCurrentQuestionId();
   const isFinished = useGetIsFinished();
-  const asweres = useGetAnswers();
+  const answers = useGetAnswers();
 
-  const isAnswersEmpty = asweres.length === 0;
+  const isAnswersEmpty = answers.length === 0;
 
   const handleClick = () => {
     if (isFinished) {

@@ -7,6 +7,16 @@ import {
 } from "@/store/slices/quiz-slice/quizSlice";
 import { useDispatch, useSelector } from "react-redux";
 
+export const useGetAnswers = (): IAnswer[] => {
+  const quiz = useSelector<TRootState, IAnswer[]>((state) => state.quiz);
+
+  if (!quiz) {
+    return [];
+  }
+
+  return quiz;
+};
+
 export const useAddAnswer = () => {
   const dispatch = useDispatch();
 
@@ -40,16 +50,6 @@ export const useGetCurrentQuestionId = (): string => {
   return quiz;
 };
 
-export const useGetAnswers = (): IAnswer[] => {
-  const quiz = useSelector<TRootState, IAnswer[]>((state) => state.quiz);
-
-  if (!quiz) {
-    return [];
-  }
-
-  return quiz;
-};
-
 export const useGetIsFinished = (): boolean => {
   const quiz = useGetAnswers();
   const isFinished = quiz.every((answer) => !!answer.value);
@@ -65,17 +65,26 @@ export const useSetInitialState = () => {
   };
 };
 
-export const useGetPrevAnswer = (): IAnswer | null => {
+export const useGetPrevAnswerOfTarget = (
+  targetQuestionId: string | null
+): IAnswer | null => {
   const answers = useGetAnswers();
-  const currentId = useGetCurrentQuestionId();
 
-  const currenIdIndex = answers?.findIndex(
-    (answer) => answer.questionId === currentId
-  );
-
-  if (currenIdIndex === -1) {
+  if (!targetQuestionId) {
     return null;
   }
 
-  return answers[currenIdIndex - 1];
+  const currentIndex = answers?.findIndex(
+    (answer) => answer.questionId === targetQuestionId
+  );
+  if (currentIndex === -1) {
+    return null;
+  }
+
+  const prevAnswer = answers[currentIndex - 1];
+  if (!prevAnswer) {
+    return null;
+  }
+
+  return prevAnswer;
 };

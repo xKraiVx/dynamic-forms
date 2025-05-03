@@ -43,6 +43,7 @@ export interface IQuestionStyle {
 export interface IQuestion {
   id: string;
   text: string;
+  description?: string;
   options: IOption[];
   style: IQuestionStyle;
 }

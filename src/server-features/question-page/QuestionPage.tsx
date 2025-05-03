@@ -13,17 +13,26 @@ interface IQuestionPageProps {
 export default function QuestionPage({
   data,
 }: IQuestionPageProps): JSX.Element {
-  const { text, options, id } = data;
+  const { text, options, id, style, description } = data;
   const formattedText = useFormatTextByState(text);
 
+  console.log("QuestionPage data", style);
+
   return (
-    <>
-      <Typography variant="heading">{formattedText}</Typography>
-      <div className="flex flex-col gap-2 mt-4">
+    <div className={style.mode}>
+      <Typography variant="heading" className="mb-2">
+        {formattedText}
+      </Typography>
+      {description && (
+        <Typography variant="body" className="mb-4">
+          {description}
+        </Typography>
+      )}
+      <div className="flex flex-col gap-2">
         {options.map((option) => (
           <OptionButton key={option.id} questionId={id} {...option} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

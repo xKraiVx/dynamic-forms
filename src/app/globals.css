@@ -2,14 +2,47 @@
 
 :root {
   --background: #fff0f0;
-  --COLOR-PRIMARY: #eaeef7;
-  --COLOR-BLACK: #333333;
-  --COLOR-WHITE: #fbfbff;
+  --COLOR-WHITE: #fff0f0;
+  --COLOR-BLACK: #fbfbff;
   --COLOR-BORDER: #e0e0e0;
+  --COLOR-TEXT: #333333;
+
+  --COLOR-BUTTON-BG: #e0e0e0;
+  --COLOR-BUTTON-TEXT: var(--COLOR-TEXT);
+
+  --INVERT-FILTER: 0;
+
+  --COLOR-FIRST-GRADIENT: #141333;
+  --COLOR-SECOND-GRADIENT: #202261;
+  --COLOR-THIRD-GRADIENT: #543c97;
+  --COLOR-FOURTH-GRADIENT: #6939a1;
+
+  --COLOR-FIRST-BUTTON-GRADIENT: var(--COLOR-FIRST-GRADIENT);
+  --COLOR-SECOND-BUTTON-GRADIENT: var(--COLOR-SECOND-GRADIENT);
+  --COLOR-THIRD-BUTTON-GRADIENT: var(--COLOR-THIRD-GRADIENT);
+  --COLOR-FOURTH-BUTTON-GRADIENT: var(--COLOR-THIRD-GRADIENT);
 
   --spacing: 8px;
 
   --font-open-sans: "Open Sans", sans-serif;
+}
+
+.dark {
+  --background: #141333;
+  --COLOR-WHITE: #333;
+  --COLOR-BLACK: #333333;
+  --COLOR-BORDER: #e0e0e0;
+  --COLOR-TEXT: #fff;
+
+  --COLOR-BUTTON-BG: #fff;
+  --COLOR-BUTTON-TEXT: #6a3aa2;
+
+  --INVERT-FILTER: 1;
+
+  --COLOR-FIRST-BUTTON-GRADIENT: #6b61f1;
+  --COLOR-SECOND-BUTTON-GRADIENT: #454aca;
+  --COLOR-THIRD-BUTTON-GRADIENT: #8d62f3;
+  --COLOR-FOURTH-BUTTON-GRADIENT: #c59bec;
 }
 
 @theme {
@@ -19,10 +52,8 @@
   --color-white: var(--COLOR-WHITE);
   --color-border: var(--COLOR-BORDER);
 
-  --color-first-gradient: #141333;
-  --color-second-gradient: #202261;
-  --color-third-gradient: #543c97;
-  --color-fourth-gradient: #6939a1;
+  --color-dark-button-bg: #fff;
+  --color-dark-button-text: #6a3aa2;
 
   --font-sans: var(--font-open-sans);
   --spacing: var(--spacing);
@@ -30,31 +61,11 @@
   --shadow-custom-purple: 2px 2px 6px rgba(84, 60, 151, 0.25);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --font-sans: var(--font-open-sans);
-  --spacing: 8px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: linear-gradient(
-      180deg,
-      #141333 0%,
-      #202261 35%,
-      #543c97 75%,
-      #6939a1 100%
-    );
-
-    --COLOR-PRIMARY: #6a3aa2;
-    --COLOR-WHITE: #333333;
-    --COLOR-BLACK: #fbfbff;
-    --COLOR-BORDER: #fbfbff;
-  }
-}
-
 body {
+  font-family: var(--font-open-sans);
   background: var(--background);
   color: var(--COLOR-TEXT);
-  font-family: Arial, Helvetica, sans-serif;
+  .dark {
+    color: var(--COLOR-TEXT);
+  }
 }

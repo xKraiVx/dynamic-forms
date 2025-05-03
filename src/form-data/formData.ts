@@ -199,7 +199,9 @@ export const formData: IQuiz = {
     },
     {
       id: "914b2e1f-b1aa-4ad7-bdc4-df3f41f5e4e6",
-      text: "So how does it work?\n\nWe analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We’re going to change your relationship with astrology.",
+      text: "So how does it work?",
+      description:
+        "We analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We’re going to change your relationship with astrology.",
       options: [
         {
           id: uuidv4(),
@@ -449,7 +451,8 @@ export const formData: IQuiz = {
     },
     {
       id: "84f75eb6-ff57-44b7-a648-d8618d0e9834",
-      text: "Do you agree with the statement below?\n\n“My partner and I make sex a priority in our relationship”",
+      text: "Do you agree with the statement below?",
+      description: "“My partner and I make sex a priority in our relationship”",
       options: [
         {
           id: uuidv4(),

@@ -43,17 +43,17 @@ export default function ConditionOptionButton({
 
   const handleClick = () => {
     addAnswer({ questionId, value });
+    if (redirectId) {
+      addAnswer({ questionId: redirectId, value: null });
+    }
   };
-
-  if (!redirectId) {
-    throw new Error("No redirect ID found for the given conditions");
-  }
 
   return (
     <Button
+      disabled={!redirectId}
       component="link"
       onClick={handleClick}
-      href={getQuestionPath(redirectId)}
+      href={getQuestionPath(redirectId || "")}
     >
       {label}
     </Button>
