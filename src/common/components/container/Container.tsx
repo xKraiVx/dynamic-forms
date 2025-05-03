@@ -4,12 +4,14 @@ import cn from "classnames";
 interface IContainerProps extends PropsWithChildren {
   size?: "sm" | "lg";
   className?: string;
+  Component?: keyof JSX.IntrinsicElements;
 }
 
 export default function Container({
   className,
   size,
   children,
+  Component = "div",
 }: IContainerProps): JSX.Element {
   const containerClass = cn(
     "container px-2 py-2 m-auto",
@@ -19,5 +21,6 @@ export default function Container({
     },
     className
   );
-  return <div className={containerClass}>{children}</div>;
+
+  return <Component className={containerClass}>{children}</Component>;
 }

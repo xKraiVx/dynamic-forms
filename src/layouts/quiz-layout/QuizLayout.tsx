@@ -14,7 +14,9 @@ export default function QuizLayout({ children, style }: IQuizLayoutProps) {
   return (
     <div className={containerClass}>
       <Header />
-      <Container size="sm">{children}</Container>
+      <Container Component="main" size="sm">
+        {children}
+      </Container>
     </div>
   );
 }

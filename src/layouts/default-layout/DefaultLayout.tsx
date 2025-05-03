@@ -9,7 +9,7 @@ export default function DefaultLayout({
   return (
     <>
       <Header />
-      <Container>{children}</Container>
+      <Container Component="main">{children}</Container>
     </>
   );
 }

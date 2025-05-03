@@ -25,7 +25,10 @@ export default function BackButton(): JSX.Element | null {
   }
 
   return (
-    <Link href={getQuestionPath(lastQuestionId)}>
+    <Link
+      href={getQuestionPath(lastQuestionId)}
+      aria-label="Go back to previous question"
+    >
       <Chevron width={ICON_SIZE} height={ICON_SIZE} />
     </Link>
   );

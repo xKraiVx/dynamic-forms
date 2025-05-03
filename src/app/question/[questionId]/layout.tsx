@@ -2,6 +2,7 @@ import { getQuestionData } from "@/api/getQuestionData";
 import { IQuiz } from "@/common/types/question.types";
 import { formData } from "@/form-data/formData";
 import QuizLayout from "@/layouts/quiz-layout/QuizLayout";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PropsWithChildren } from "react";
 
@@ -13,6 +14,19 @@ interface IQuestionPageParams {
 
 export interface IBlogMetaDataProps {
   params: Promise<IQuestionPageParams>;
+}
+
+export async function generateMetadata({
+  params,
+}: IBlogMetaDataProps): Promise<Metadata> {
+  const { questionId } = await params;
+
+  const question = getQuestionData(questionId);
+
+  return {
+    title: "Question",
+    description: question?.text,
+  };
 }
 
 export async function generateStaticParams() {
