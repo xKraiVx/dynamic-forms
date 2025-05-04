@@ -1,8 +1,8 @@
 "use client";
 
 import { IQuestion } from "@/common/types/question.types";
-import EmptyResult from "@/server-features/result-page/components/empty-result/EmptyResult";
-import ResultList from "@/server-features/result-page/components/result-list/ResultList";
+import EmptyResult from "@/features/result/components/result-empty/ResultEmpty";
+import ResultList from "@/features/result/components/result-list/ResultList";
 import { useGetAnswers } from "@/store/slices/quiz-slice/quizSlice.hooks";
 import { JSX } from "react";
 

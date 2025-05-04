@@ -1,7 +1,7 @@
 import { EActionType, IQuiz } from "@/common/types/question.types";
 import { v4 as uuidv4 } from "uuid";
 
-export const formData: IQuiz = {
+export const MOCKED_DATA: IQuiz = {
   id: "1c2b183b-7e57-49d5-8a2d-6b16c7c5b7fd",
   initialQuestionId: "c3d59d45-a718-4e92-9f98-6adbd6d0cfae",
   name: "Introduction Quiz",

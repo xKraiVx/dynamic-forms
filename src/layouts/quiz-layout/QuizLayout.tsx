@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react";
 import { quizLayoutStyles } from "@/layouts/quiz-layout/utils/getQuizLayoutStyles";
 
 interface IQuizLayoutProps extends PropsWithChildren {
-  style: IQuestionStyle;
+  style: IQuestionStyle | null;
 }
 
 export default function QuizLayout({ children, style }: IQuizLayoutProps) {

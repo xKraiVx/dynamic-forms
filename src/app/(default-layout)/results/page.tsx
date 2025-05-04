@@ -1,6 +1,7 @@
-import { getQuestionsData } from "@/api/getQuestionsData";
-import ResultPage from "@/server-features/result-page/ResultPage";
+import { getResultPageData } from "@/features/result/api/getResultPageData";
+import ResultPage from "@/features/result/components/result-page/ResultPage";
 import { Metadata } from "next";
+import { JSX } from "react";
 
 export function generateMetadata(): Metadata {
   return {
@@ -9,8 +10,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function Page() {
-  const questionsData = getQuestionsData();
+export default async function Page(): Promise<JSX.Element> {
+  const questionsData = await getResultPageData();
 
   return <ResultPage data={questionsData} />;
 }

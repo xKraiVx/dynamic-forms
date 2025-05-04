@@ -3,7 +3,7 @@
 import Typography from "@/common/components/typography/Typography";
 import { useFormatTextByState } from "@/common/hooks/useFormatTextByState";
 import { IQuestion } from "@/common/types/question.types";
-import OptionButton from "@/server-features/question-page/components/option-button/OptionButton";
+import OptionButton from "@/features/quiz/components/option-button/OptionButton";
 import { JSX } from "react";
 
 interface IQuestionPageProps {

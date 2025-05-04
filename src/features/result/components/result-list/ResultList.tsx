@@ -2,7 +2,7 @@ import Button from "@/common/components/button/Button";
 import Typography from "@/common/components/typography/Typography";
 import { IAnswer } from "@/common/types/answer";
 import { IQuestion } from "@/common/types/question.types";
-import ResultListItem from "@/server-features/result-page/components/result-list/ResultListItem";
+import ResultListItem from "@/features/result/components/result-list/ResultListItem";
 import { JSX } from "react";
 
 interface IResultListProps {

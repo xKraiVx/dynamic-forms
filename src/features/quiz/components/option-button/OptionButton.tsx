@@ -1,9 +1,9 @@
 "use client";
 
 import { EActionType, IOption } from "@/common/types/question.types";
-import ConditionOptionButton from "@/server-features/question-page/components/option-button/ConditionOptionButton";
-import RedirectOptionButton from "@/server-features/question-page/components/option-button/RedirectOptionButton";
-import SubmitOptionButton from "@/server-features/question-page/components/option-button/SubmitOptionButton";
+import ConditionOptionButton from "@/features/quiz/components/option-button/ConditionOptionButton";
+import RedirectOptionButton from "@/features/quiz/components/option-button/RedirectOptionButton";
+import SubmitOptionButton from "@/features/quiz/components/option-button/SubmitOptionButton";
 import { JSX } from "react";
 
 interface IOptionButtonProps extends IOption {

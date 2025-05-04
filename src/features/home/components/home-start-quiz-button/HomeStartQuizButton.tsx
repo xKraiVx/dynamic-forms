@@ -16,7 +16,7 @@ interface IStartQuizButtonProps {
   initialQuesionId: string;
 }
 
-export default function StartQuizButton({
+export default function HomeStartQuizButton({
   quizTitle,
   initialQuesionId,
 }: IStartQuizButtonProps): JSX.Element {

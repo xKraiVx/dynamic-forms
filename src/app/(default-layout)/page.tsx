@@ -1,7 +1,7 @@
-import HomePage from "@/server-features/home-page/HomePage";
+import HomePage from "@/features/home/components/home-page/HomePage";
 import { JSX } from "react";
-import { getHomePageData } from "@/api/getHomePageData";
 import { Metadata } from "next";
+import { getHomePageData } from "@/features/home/api/getHomePageData";
 
 export const revalidate = 60;
 
@@ -12,8 +12,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function Home(): JSX.Element {
-  const { name, initialQuestionId } = getHomePageData();
+export default async function Home(): Promise<JSX.Element> {
+  const { name, initialQuestionId } = await getHomePageData();
 
   return <HomePage quizTitle={name} initialQuesionId={initialQuestionId} />;
 }
