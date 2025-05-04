@@ -4,7 +4,7 @@ import { JSX, PropsWithChildren } from "react";
 
 import { motion } from "framer-motion";
 
-export default function AnimationTemplate({
+export default function AnimatedBlock({
   children,
 }: PropsWithChildren): JSX.Element {
   return (
