@@ -1,11 +1,7 @@
 import {
-  BUTTON_ACTIVE_STYLES,
-  BUTTON_BEFORE_STYLES,
   BUTTON_CONTENT_STYLES,
-  BUTTON_DEFAULT_STYLES,
   BUTTON_DISABLED_STYLES,
-  BUTTON_FOCUS_STYLES,
-  BUTTON_HOVER_STYLES,
+  BUTTON_STYLES,
 } from "@/common/components/button/constants/buttons.styles";
 import cn from "classnames";
 import Link, { LinkProps } from "next/link";
@@ -33,11 +29,7 @@ export default function Button({
   ...props
 }: TButtonProps): JSX.Element {
   const buttonStyles = cn(
-    BUTTON_DEFAULT_STYLES,
-    BUTTON_ACTIVE_STYLES,
-    BUTTON_HOVER_STYLES,
-    BUTTON_FOCUS_STYLES,
-    BUTTON_BEFORE_STYLES,
+    BUTTON_STYLES,
     disabled && BUTTON_DISABLED_STYLES,
     className
   );
